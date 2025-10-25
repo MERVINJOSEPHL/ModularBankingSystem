@@ -5,8 +5,8 @@
 This Proof of Concept (PoC) establishes a secure, modular banking system focused on the essential Customer and Admin workflows, driven by robust **JWT authentication** and cutting-edge **LLaMA-powered fraud detection**.
 
 ### Key System Flow
-1.  **Customer Onboarding:** Sign up $\rightarrow$ KYC Verification $\rightarrow$ Account Creation (Saving/Deposit Type).
-2.  **Customer Actions:** Login via JWT $\rightarrow$ Request Loan OR $\rightarrow$ Make Transaction.
+1.  **Customer Onboarding:** Sign up -> KYC Verification -> Account Creation (Saving/Deposit Type).
+2.  **Customer Actions:** Login via JWT -> Request Loan OR -> Make Transaction.
 3.  **Real-time Security:** **LLaMA Fraud Detection** runs instantly during transactions.
 4.  **Admin Oversight:** Admin reviews all transactions and fraud flags.
 
@@ -80,3 +80,49 @@ The system is defined by distinct roles and their authorization via JWT.
     # Frontend
     streamlit run ui/app.py
     ```
+
+---
+
+## 6. Complete API Specification
+
+This section details the necessary CRUD API endpoints, defining the inputs (using **Pydantic**) and outputs for all core functionality demonstrated in the PoC. All endpoints are hosted by **FastAPI** and secured by **JWT** unless marked Public.
+
+### 6.1. Authentication Endpoints (Public)
+
+These manage user registration and token issuance.
+
+| Method | Endpoint | Description | Input Parameters | Output Parameters |
+| :--- | :--- | :--- | :--- | :--- |
+| `POST` | `/api/auth/signup` | Register a new user (`customer` role) and initiate account structure. | **Pydantic Model:** `username: str`, `password: str`, `initial_deposit: float`, `account_type: str` ('Saving'/'Deposit') | `user_id: uuid`, `message: str` ("Registration successful, KYC pending") |
+| `POST` | `/api/auth/login` | Authenticate credentials and issue a JWT. | **Pydantic Model:** `username: str`, `password: str` | `access_token: str` (JWT), `token_type: str`, `role: str` |
+
+### 6.2. Customer Endpoints (Authorized by JWT - Role: 'customer')
+
+These require a valid Customer JWT for access.
+
+| Method | Endpoint | Description | Input Parameters | Output Parameters |
+| :--- | :--- | :--- | :--- | :--- |
+| `GET` | `/api/accounts/balance` | Fetch the current account balance and status. | *(None, uses user\_id from JWT)* | **Pydantic Model:** `balance: float`, `account_type: str`, `kyc_status: bool` |
+| `GET` | `/api/transactions/history` | Retrieve a list of the customer's transactions. | `limit: int` (Optional), `offset: int` (Optional) | **List[Pydantic Model]:** `transaction_id`, `amount`, `type`, `timestamp` |
+| `POST` | `/api/transactions/transfer` | Initiate a fund transfer. **Triggers LLaMA fraud check.** | **Pydantic Model:** `target_account_number: str`, `amount: float`, `description: str` | `transaction_id: uuid`, `status: str` ("Pending Fraud Check" or "Flagged") |
+| `POST` | `/api/loans/request` | Submit a new loan request. | **Pydantic Model:** `loan_type: str`, `amount: float`, `tenure_months: int` | `loan_id: uuid`, `status: str` ("Pending Admin Approval") |
+| `GET` | `/api/loans/status/{loan_id}` | Check the status of a specific loan request. | `loan_id: uuid` (Path Parameter) | **Pydantic Model:** `loan_id`, `status: str`, `emi_amount: float` (if approved) |
+
+### 6.3. Admin Endpoints (Authorized by JWT - Role: 'admin')
+
+These endpoints demonstrate administrative oversight and require an Admin JWT.
+
+| Method | Endpoint | Description | Input Parameters | Output Parameters |
+| :--- | :--- | :--- | :--- | :--- |
+| `GET` | `/api/admin/transactions/all` | View all customer transactions across the system. | *(None)* | **List[Pydantic Model]:** Full transaction list, including `customer_id` |
+| `GET` | `/api/admin/fraud/flagged` | View all transactions flagged by the LLaMA model. | *(None)* | **List[Pydantic Model]:** `transaction_id`, `amount`, `reason_from_llama`, `timestamp` |
+| `POST` | `/api/admin/loan/{loan_id}/review` | Manually approve or reject a pending loan request. | `loan_id: uuid` (Path Parameter), **Pydantic Model:** `decision: str` ('Approved'/'Rejected') | `loan_id: uuid`, `status: str` (Updated Status) |
+| `POST` | `/api/admin/kyc/verify/{user_id}` | Manually update a customer's KYC status. | `user_id: uuid` (Path Parameter), **Pydantic Model:** `is_verified: bool` | `user_id: uuid`, `kyc_status: bool` |
+
+### 6.4. Audit Endpoint (Future Scope)
+
+This structure is reserved for the future read-only Auditor role.
+
+| Method | Endpoint | Description | Input Parameters | Output Parameters |
+| :--- | :--- | :--- | :--- | :--- |
+| `GET` | `/api/audit/logs` | Retrieve all system logs (requires 'auditor' role). | `start_date: date` (Optional), `action: str` (Optional) | **List[Pydantic Model]:** `log_id`, `user_id`, `timestamp`, `action`, `ip_address` |
