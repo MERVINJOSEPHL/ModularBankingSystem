@@ -1,0 +1,102 @@
+2025-10-25 11:59:15,172 - main - ERROR - Failed to create database tables: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: fe_sendauth: no password supplied
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-25 12:01:54,855 - main - INFO - Root endpoint accessed.
+2025-10-25 12:07:50,046 - main - ERROR - Failed to create database tables: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "advincidb" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-25 12:08:15,683 - main - ERROR - Failed to create database tables: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "public" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-25 12:09:10,160 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 12:09:42,193 - controller.signup_login_controller - INFO - Received signup request for username: mervin
+2025-10-25 12:09:42,244 - services.signup_services - ERROR - Registration failed due to input validation: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+2025-10-25 12:09:42,245 - controller.signup_login_controller - WARNING - Signup failed for mervin: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+2025-10-25 12:13:03,882 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 12:13:12,324 - controller.signup_login_controller - INFO - Received signup request for username: mervin
+2025-10-25 12:13:12,325 - services.signup_services - CRITICAL - Critical ORM error during registration: 'module' object is not callable
+2025-10-25 12:13:12,325 - controller.signup_login_controller - CRITICAL - Unhandled ORM error during signup for mervin: 'module' object is not callable
+2025-10-25 12:14:29,889 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 12:14:33,830 - controller.signup_login_controller - INFO - Received signup request for username: mervin
+2025-10-25 12:14:33,847 - services.signup_services - ERROR - Registration failed due to input validation: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+2025-10-25 12:14:33,847 - controller.signup_login_controller - WARNING - Signup failed for mervin: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+2025-10-25 12:16:22,640 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 12:16:40,130 - controller.signup_login_controller - INFO - Received signup request for username: mervin
+2025-10-25 12:16:41,029 - services.signup_services - CRITICAL - Critical ORM error during registration: relationship 'audit_logs' expects a class or a mapper argument (received: <class 'sqlalchemy.sql.schema.Table'>)
+2025-10-25 12:16:41,029 - controller.signup_login_controller - CRITICAL - Unhandled ORM error during signup for mervin: relationship 'audit_logs' expects a class or a mapper argument (received: <class 'sqlalchemy.sql.schema.Table'>)
+2025-10-25 12:18:05,067 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 12:18:08,157 - controller.signup_login_controller - INFO - Received signup request for username: mervin
+2025-10-25 12:18:09,372 - services.signup_services - CRITICAL - Critical ORM error during registration: (psycopg2.errors.UndefinedColumn) column "username" of relation "User" does not exist
+LINE 1: INSERT INTO "User" (user_id, username, hashed_password, role...
+                                     ^
+
+[SQL: INSERT INTO "User" (user_id, username, hashed_password, role, last_login) VALUES (%(user_id)s, %(username)s, %(hashed_password)s, %(role)s, %(last_login)s)]
+[parameters: {'user_id': '9b1fb6fa-e6f5-439e-918c-fb07b70bbf00', 'username': 'mervin', 'hashed_password': '$5$rounds=535000$kO3dhvZWTIn8AtJv$ImQ9bs8HXrkesFU10xyPt3HAJjtRA/CInO2gTUGU7BB', 'role': 'customer', 'last_login': None}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-25 12:18:09,374 - controller.signup_login_controller - CRITICAL - Unhandled ORM error during signup for mervin: (psycopg2.errors.UndefinedColumn) column "username" of relation "User" does not exist
+LINE 1: INSERT INTO "User" (user_id, username, hashed_password, role...
+                                     ^
+
+[SQL: INSERT INTO "User" (user_id, username, hashed_password, role, last_login) VALUES (%(user_id)s, %(username)s, %(hashed_password)s, %(role)s, %(last_login)s)]
+[parameters: {'user_id': '9b1fb6fa-e6f5-439e-918c-fb07b70bbf00', 'username': 'mervin', 'hashed_password': '$5$rounds=535000$kO3dhvZWTIn8AtJv$ImQ9bs8HXrkesFU10xyPt3HAJjtRA/CInO2gTUGU7BB', 'role': 'customer', 'last_login': None}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-10-25 12:20:05,635 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 12:20:09,797 - controller.signup_login_controller - INFO - Received signup request for username: mervin
+2025-10-25 12:20:10,676 - services.signup_services - INFO - User mervin registered (ID: d7bbfc26-7e8d-4d3e-a359-79d20b10b949). Account created. KYC pending.
+2025-10-25 12:20:48,322 - controller.signup_login_controller - INFO - Received login request for username: mervin
+2025-10-25 12:20:49,135 - services.signup_services - INFO - User 'mervin' authenticated successfully. Role: customer
+2025-10-25 12:20:49,491 - services.signup_services - INFO - JWT created for user: d7bbfc26-7e8d-4d3e-a359-79d20b10b949
+2025-10-25 12:31:43,670 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 12:35:47,051 - controller.signup_login_controller - INFO - Received signup request for username: mmm, role: customer
+2025-10-25 12:35:47,895 - services.signup_services - INFO - Customer mmm registered (ID: bc215ce0-79f9-43de-8ace-73706271fc92). Account created. KYC pending.
+2025-10-25 12:36:07,212 - controller.signup_login_controller - INFO - Received login request for username: mmm
+2025-10-25 12:36:08,084 - services.signup_services - INFO - User 'mmm' authenticated successfully. Role: customer
+2025-10-25 12:36:08,097 - services.signup_services - INFO - JWT created for user: bc215ce0-79f9-43de-8ace-73706271fc92, Role: customer
+2025-10-25 12:36:36,703 - controller.signup_login_controller - INFO - Received signup request for username: mmm, role: admin
+2025-10-25 12:36:37,480 - services.signup_services - WARNING - Signup failed: Username mmm already exists (IntegrityError).
+2025-10-25 12:36:37,480 - controller.signup_login_controller - WARNING - Signup failed for mmm: Username already exists.
+2025-10-25 12:36:45,876 - controller.signup_login_controller - INFO - Received signup request for username: mmmmn, role: admin
+2025-10-25 12:36:46,908 - services.signup_services - INFO - Admin mmmmn registered (ID: 641b8b05-c974-45e1-bf79-8fd654bba3a5).
+2025-10-25 12:37:00,180 - controller.signup_login_controller - INFO - Received login request for username: mmmmn
+2025-10-25 12:37:00,981 - services.signup_services - INFO - User 'mmmmn' authenticated successfully. Role: admin
+2025-10-25 12:37:00,983 - services.signup_services - INFO - JWT created for user: 641b8b05-c974-45e1-bf79-8fd654bba3a5, Role: admin
+2025-10-25 12:42:11,273 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 12:42:11,395 - main - INFO - Root endpoint accessed.
+2025-10-25 12:42:12,804 - controller.signup_login_controller - INFO - Received signup request for username: testcustomer, role: customer
+2025-10-25 12:42:12,896 - controller.signup_login_controller - INFO - Received signup request for username: existinguser, role: customer
+2025-10-25 12:42:12,896 - controller.signup_login_controller - WARNING - Signup failed for existinguser: Username already exists.
+2025-10-25 12:42:12,966 - controller.signup_login_controller - INFO - Received login request for username: testuser
+2025-10-25 12:42:13,025 - controller.signup_login_controller - INFO - Received login request for username: wronguser
+2025-10-25 12:42:13,025 - controller.signup_login_controller - WARNING - Login failed for wronguser: Invalid credentials.
+2025-10-25 12:42:13,112 - controller.signup_login_controller - INFO - Received login request for username: testuser
+2025-10-25 12:42:13,113 - controller.signup_login_controller - CRITICAL - Unhandled ORM error during login for testuser: DB Timeout
+2025-10-25 12:43:38,850 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 12:43:38,878 - main - INFO - Root endpoint accessed.
+2025-10-25 12:43:39,737 - controller.signup_login_controller - INFO - Received signup request for username: testcustomer, role: customer
+2025-10-25 12:43:39,747 - controller.signup_login_controller - INFO - Received signup request for username: existinguser, role: customer
+2025-10-25 12:43:39,747 - controller.signup_login_controller - WARNING - Signup failed for existinguser: Username already exists.
+2025-10-25 12:43:39,772 - controller.signup_login_controller - INFO - Received login request for username: testuser
+2025-10-25 12:43:39,783 - controller.signup_login_controller - INFO - Received login request for username: wronguser
+2025-10-25 12:43:39,784 - controller.signup_login_controller - WARNING - Login failed for wronguser: Invalid credentials.
+2025-10-25 12:43:39,798 - controller.signup_login_controller - INFO - Received login request for username: testuser
+2025-10-25 12:43:39,799 - controller.signup_login_controller - CRITICAL - Unhandled ORM error during login for testuser: DB Timeout
+2025-10-25 12:46:28,113 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 12:46:28,147 - main - INFO - Root endpoint accessed.
+2025-10-25 12:46:28,159 - controller.signup_login_controller - INFO - Received signup request for username: testcustomer, role: customer
+2025-10-25 12:46:28,170 - controller.signup_login_controller - INFO - Received signup request for username: existinguser, role: customer
+2025-10-25 12:46:28,170 - controller.signup_login_controller - WARNING - Signup failed for existinguser: Username already exists.
+2025-10-25 12:46:28,190 - controller.signup_login_controller - INFO - Received login request for username: testuser
+2025-10-25 12:46:28,201 - controller.signup_login_controller - INFO - Received login request for username: wronguser
+2025-10-25 12:46:28,201 - controller.signup_login_controller - WARNING - Login failed for wronguser: Invalid credentials.
+2025-10-25 12:46:28,209 - controller.signup_login_controller - INFO - Received login request for username: testuser
+2025-10-25 12:46:28,210 - controller.signup_login_controller - CRITICAL - Unhandled ORM error during login for testuser: DB Timeout
+2025-10-25 12:47:51,068 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 12:47:51,098 - main - INFO - Root endpoint accessed.
+2025-10-25 12:47:51,109 - controller.signup_login_controller - INFO - Received signup request for username: testcustomer, role: customer
+2025-10-25 12:47:51,117 - controller.signup_login_controller - INFO - Received signup request for username: existinguser, role: customer
+2025-10-25 12:47:51,117 - controller.signup_login_controller - WARNING - Signup failed for existinguser: Username already exists.
+2025-10-25 12:47:51,137 - controller.signup_login_controller - INFO - Received login request for username: testuser
+2025-10-25 12:47:51,148 - controller.signup_login_controller - INFO - Received login request for username: wronguser
+2025-10-25 12:47:51,148 - controller.signup_login_controller - WARNING - Login failed for wronguser: Invalid credentials.
+2025-10-25 12:47:51,158 - controller.signup_login_controller - INFO - Received login request for username: testuser
+2025-10-25 12:47:51,159 - controller.signup_login_controller - CRITICAL - Unhandled ORM error during login for testuser: DB Timeout

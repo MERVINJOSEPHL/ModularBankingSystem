@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pydantic
+sqlalchemy
+passlib[bcrypt]
+python-jose[cryptography]
+pytest
+httpx
+# Driver for PostgreSQL - include if you switch from SQLite
+psycopg2-binary
