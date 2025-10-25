@@ -91,9 +91,10 @@ def register_user_orm(db: Session, user_data: SignUpRequest) -> uuid.UUID:
             
         return new_user_id
 
-    except IntegrityError:
+    except IntegrityError as e:
         db.rollback()
-        logger.warning(f"Signup failed: Username {user_data.username} already exists (IntegrityError).")
+        logger.warning(f"{e}")
+        logger.warning(f" (IntegrityError).{e}")
         raise ValueError("Username already exists.")
     except ValueError as ve:
         db.rollback()

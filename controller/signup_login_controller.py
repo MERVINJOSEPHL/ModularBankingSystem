@@ -1,18 +1,20 @@
 # app/controller/signup_login_controller.py
 
 from fastapi import APIRouter, HTTPException, status, Depends
+# FIX: Import the necessary class to handle form-encoded data
+from fastapi.security import OAuth2PasswordRequestForm 
 from sqlalchemy.orm import Session
 # The pydantic models used for request/response
 from models.signup_models import SignUpRequest, LoginRequest, SignUpResponse, LoginResponse 
 # This imports the module signup_service which contains your functions
-from services import signup_services as  signup_service 
+from services import signup_services as signup_service 
 from utility.database import get_db 
 from utility.logging import setup_logger
 
 router = APIRouter(tags=["Authentication"])
 logger = setup_logger(__name__)
 
-@router.post("/signup", response_model=SignUpResponse)
+@router.post("/signup", response_model=SignUpResponse, summary="Register a new User (Customer or Admin)")
 def signup_user(request: SignUpRequest, db: Session = Depends(get_db)):
     """
     Handles new user registration (Customer or Admin) using the ORM.
@@ -20,7 +22,6 @@ def signup_user(request: SignUpRequest, db: Session = Depends(get_db)):
     try:
         logger.info(f"Received signup request for username: {request.username}, role: {request.role.value}")
         
-        # Access the function via the imported module name: signup_service.register_user_orm
         user_id = signup_service.register_user_orm(db, request)
         
         message = "Registration successful."
@@ -44,17 +45,27 @@ def signup_user(request: SignUpRequest, db: Session = Depends(get_db)):
             detail="An unexpected error occurred during signup."
         )
 
-@router.post("/login", response_model=LoginResponse)
-def login_user(request: LoginRequest, db: Session = Depends(get_db)):
+@router.post("/login", response_model=LoginResponse, summary="Authenticate user and get JWT Bearer Token")
+def login_user(
+    # FIX: Change the request dependency to use the form parser
+    request: OAuth2PasswordRequestForm = Depends(), 
+    db: Session = Depends(get_db)
+):
     """
-    Authenticates user, considers the role, and returns a JWT token 
-    along with the user's role in the response body.
+    Authenticates user, considers the role, and returns a JWT token.
+    Uses form data to match the OAuth2 client (Swagger) expectations.
     """
     try:
         logger.info(f"Received login request for username: {request.username}")
         
+        # Create a LoginRequest Pydantic model from the parsed form data
+        login_data = LoginRequest(
+            username=request.username, 
+            password=request.password
+        )
+        
         # Access the function via the imported module name: signup_service.authenticate_user_orm
-        auth_data = signup_service.authenticate_user_orm(db, request)
+        auth_data = signup_service.authenticate_user_orm(db, login_data)
 
         # Access the function via the imported module name: signup_service.create_jwt_response
         response_data = signup_service.create_jwt_response(auth_data)

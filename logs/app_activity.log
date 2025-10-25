@@ -100,3 +100,183 @@ LINE 1: INSERT INTO "User" (user_id, username, hashed_password, role...
 2025-10-25 12:47:51,148 - controller.signup_login_controller - WARNING - Login failed for wronguser: Invalid credentials.
 2025-10-25 12:47:51,158 - controller.signup_login_controller - INFO - Received login request for username: testuser
 2025-10-25 12:47:51,159 - controller.signup_login_controller - CRITICAL - Unhandled ORM error during login for testuser: DB Timeout
+2025-10-25 13:11:08,695 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 13:11:13,044 - main - INFO - Root endpoint accessed.
+2025-10-25 13:17:41,920 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 13:19:34,940 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 13:19:37,572 - main - INFO - Root endpoint accessed.
+2025-10-25 13:27:16,723 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 13:27:20,948 - main - INFO - Root endpoint accessed.
+2025-10-25 13:30:34,761 - controller.signup_login_controller - INFO - Received signup request for username: mkmkmm, role: customer
+2025-10-25 13:30:36,040 - services.signup_services - WARNING - Signup failed: Username mkmkmm already exists (IntegrityError).
+2025-10-25 13:30:36,041 - controller.signup_login_controller - WARNING - Signup failed for mkmkmm: Username already exists.
+2025-10-25 13:30:41,988 - controller.signup_login_controller - INFO - Received signup request for username: mkmkmmmm, role: customer
+2025-10-25 13:30:42,922 - services.signup_services - WARNING - Signup failed: Username mkmkmmmm already exists (IntegrityError).
+2025-10-25 13:30:42,923 - controller.signup_login_controller - WARNING - Signup failed for mkmkmmmm: Username already exists.
+2025-10-25 13:30:54,223 - controller.signup_login_controller - INFO - Received signup request for username: assasaasa, role: customer
+2025-10-25 13:30:55,078 - services.signup_services - WARNING - Signup failed: Username assasaasa already exists (IntegrityError).
+2025-10-25 13:30:55,078 - controller.signup_login_controller - WARNING - Signup failed for assasaasa: Username already exists.
+2025-10-25 13:31:12,459 - controller.signup_login_controller - INFO - Received signup request for username: abcdefg, role: customer
+2025-10-25 13:31:13,406 - services.signup_services - WARNING - Signup failed: Username abcdefg already exists (IntegrityError).
+2025-10-25 13:31:13,407 - controller.signup_login_controller - WARNING - Signup failed for abcdefg: Username already exists.
+2025-10-25 13:33:17,455 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 13:33:19,791 - main - INFO - Root endpoint accessed.
+2025-10-25 13:33:50,202 - controller.signup_login_controller - INFO - Received signup request for username: abc, role: customer
+2025-10-25 13:33:51,810 - services.signup_services - WARNING - Signup failed: Username abc already exists (IntegrityError).
+2025-10-25 13:33:51,811 - controller.signup_login_controller - WARNING - Signup failed for abc: Username already exists.
+2025-10-25 13:35:02,512 - controller.signup_login_controller - INFO - Received signup request for username: abcdefg, role: customer
+2025-10-25 13:35:03,346 - services.signup_services - WARNING - Signup failed: Username abcdefg already exists (IntegrityError).
+2025-10-25 13:35:03,346 - controller.signup_login_controller - WARNING - Signup failed for abcdefg: Username already exists.
+2025-10-25 13:36:28,669 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 13:36:32,680 - main - INFO - Root endpoint accessed.
+2025-10-25 13:36:54,844 - controller.signup_login_controller - INFO - Received signup request for username: mkmkmkmk, role: customer
+2025-10-25 13:36:55,749 - services.signup_services - WARNING - Signup failed: Username mkmkmkmk already exists (IntegrityError).
+2025-10-25 13:36:55,749 - controller.signup_login_controller - WARNING - Signup failed for mkmkmkmk: Username already exists.
+2025-10-25 13:40:18,536 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 13:40:22,217 - main - INFO - Root endpoint accessed.
+2025-10-25 13:40:52,981 - controller.signup_login_controller - INFO - Received signup request for username: mervinjoseph, role: customer
+2025-10-25 13:40:53,934 - services.signup_services - WARNING - Signup failed: Username mervinjoseph already exists (IntegrityError).
+2025-10-25 13:40:53,934 - controller.signup_login_controller - WARNING - Signup failed for mervinjoseph: Username already exists.
+2025-10-25 13:44:35,263 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 13:44:43,554 - controller.signup_login_controller - INFO - Received signup request for username: mervinjoseph, role: customer
+2025-10-25 13:44:44,327 - services.signup_services - WARNING - (psycopg2.errors.CheckViolation) new row for relation "Account" violates check constraint "account_type_check"
+DETAIL:  Failing row contains (e197a09d-f6f1-4c78-a250-177551fd59e1, 32c5093f-e6b9-4c6b-85ea-5aff50443ecb, 2909540290305518, fd, 100.00, 2025-10-25 13:44:44.302059).
+
+[SQL: INSERT INTO "Account" (account_id, customer_id, account_number, account_type, current_balance) VALUES (%(account_id)s, %(customer_id)s, %(account_number)s, %(account_type)s, %(current_balance)s) RETURNING "Account".created_at]
+[parameters: {'account_id': 'e197a09d-f6f1-4c78-a250-177551fd59e1', 'customer_id': '32c5093f-e6b9-4c6b-85ea-5aff50443ecb', 'account_number': '2909540290305518', 'account_type': 'fd', 'current_balance': 100.0}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-25 13:44:44,329 - services.signup_services - WARNING - Signup failed: Username mervinjoseph already exists (IntegrityError).
+2025-10-25 13:44:44,331 - controller.signup_login_controller - WARNING - Signup failed for mervinjoseph: Username already exists.
+2025-10-25 13:45:43,864 - controller.signup_login_controller - INFO - Received signup request for username: mervinjoseph, role: customer
+2025-10-25 13:45:44,782 - services.signup_services - CRITICAL - Critical ORM error during registration: (psycopg2.errors.StringDataRightTruncation) value too long for type character varying(10)
+
+[SQL: INSERT INTO "Account" (account_id, customer_id, account_number, account_type, current_balance) VALUES (%(account_id)s, %(customer_id)s, %(account_number)s, %(account_type)s, %(current_balance)s) RETURNING "Account".created_at]
+[parameters: {'account_id': 'dee513c4-473b-4d1b-98cb-6f0ec05df570', 'customer_id': '6fad380e-1215-4a40-8c7f-3f03337c0fdb', 'account_number': '2933044495245093', 'account_type': 'FIXED_DEPOSIT', 'current_balance': 100.0}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2025-10-25 13:45:44,782 - controller.signup_login_controller - CRITICAL - Unhandled ORM error during signup for mervinjoseph: (psycopg2.errors.StringDataRightTruncation) value too long for type character varying(10)
+
+[SQL: INSERT INTO "Account" (account_id, customer_id, account_number, account_type, current_balance) VALUES (%(account_id)s, %(customer_id)s, %(account_number)s, %(account_type)s, %(current_balance)s) RETURNING "Account".created_at]
+[parameters: {'account_id': 'dee513c4-473b-4d1b-98cb-6f0ec05df570', 'customer_id': '6fad380e-1215-4a40-8c7f-3f03337c0fdb', 'account_number': '2933044495245093', 'account_type': 'FIXED_DEPOSIT', 'current_balance': 100.0}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2025-10-25 13:46:44,269 - controller.signup_login_controller - INFO - Received signup request for username: mervinjoseph, role: customer
+2025-10-25 13:46:45,313 - services.signup_services - INFO - Customer mervinjoseph registered (ID: 410c6a71-b83b-40d6-b381-ade1754431f8). Account created. KYC pending.
+2025-10-25 13:52:33,621 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 13:52:36,694 - main - INFO - Root endpoint accessed.
+2025-10-25 13:53:38,130 - controller.signup_login_controller - INFO - Received signup request for username: mervinnina, role: customer
+2025-10-25 13:53:39,178 - services.signup_services - INFO - Customer mervinnina registered (ID: f44fb5ab-fb3d-4848-aa94-1a38d6aeda2c). Account created. KYC pending.
+2025-10-25 13:54:01,385 - controller.signup_login_controller - INFO - Received login request for username: mervinnina
+2025-10-25 13:54:02,338 - services.signup_services - INFO - User 'mervinnina' authenticated successfully. Role: customer
+2025-10-25 13:54:02,765 - services.signup_services - INFO - JWT created for user: f44fb5ab-fb3d-4848-aa94-1a38d6aeda2c, Role: customer
+2025-10-25 13:57:17,033 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 14:01:27,803 - controller.signup_login_controller - INFO - Received login request for username: mkmkmkmk
+2025-10-25 14:01:27,994 - services.signup_services - WARNING - Login attempt failed: Invalid credentials for mkmkmkmk.
+2025-10-25 14:01:27,996 - services.signup_services - ERROR - Error during ORM user authentication: Invalid username or password.
+2025-10-25 14:01:27,996 - controller.signup_login_controller - WARNING - Login failed for mkmkmkmk: Invalid credentials.
+2025-10-25 14:01:35,401 - controller.signup_login_controller - INFO - Received signup request for username: mkmkmkmk, role: customer
+2025-10-25 14:01:36,453 - services.signup_services - WARNING - (psycopg2.errors.CheckViolation) new row for relation "Account" violates check constraint "account_type_check"
+DETAIL:  Failing row contains (72b83e09-997e-4cf3-8599-ef50cfda11b6, 56640bdc-3576-4e96-9773-b30f8dd72add, 1892740875607677, mkmkm, 121.00, 2025-10-25 14:01:36.383321).
+
+[SQL: INSERT INTO "Account" (account_id, customer_id, account_number, account_type, current_balance) VALUES (%(account_id)s, %(customer_id)s, %(account_number)s, %(account_type)s, %(current_balance)s) RETURNING "Account".created_at]
+[parameters: {'account_id': '72b83e09-997e-4cf3-8599-ef50cfda11b6', 'customer_id': '56640bdc-3576-4e96-9773-b30f8dd72add', 'account_number': '1892740875607677', 'account_type': 'mkmkm', 'current_balance': 121.0}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-25 14:01:36,455 - services.signup_services - WARNING -  (IntegrityError).(psycopg2.errors.CheckViolation) new row for relation "Account" violates check constraint "account_type_check"
+DETAIL:  Failing row contains (72b83e09-997e-4cf3-8599-ef50cfda11b6, 56640bdc-3576-4e96-9773-b30f8dd72add, 1892740875607677, mkmkm, 121.00, 2025-10-25 14:01:36.383321).
+
+[SQL: INSERT INTO "Account" (account_id, customer_id, account_number, account_type, current_balance) VALUES (%(account_id)s, %(customer_id)s, %(account_number)s, %(account_type)s, %(current_balance)s) RETURNING "Account".created_at]
+[parameters: {'account_id': '72b83e09-997e-4cf3-8599-ef50cfda11b6', 'customer_id': '56640bdc-3576-4e96-9773-b30f8dd72add', 'account_number': '1892740875607677', 'account_type': 'mkmkm', 'current_balance': 121.0}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-25 14:01:36,455 - controller.signup_login_controller - WARNING - Signup failed for mkmkmkmk: Username already exists.
+2025-10-25 14:01:49,141 - controller.signup_login_controller - INFO - Received signup request for username: mkmkmkmk, role: customer
+2025-10-25 14:01:49,928 - services.signup_services - WARNING - (psycopg2.errors.CheckViolation) new row for relation "Account" violates check constraint "account_type_check"
+DETAIL:  Failing row contains (c06f4e13-a373-4494-a2ac-b9f1e969cb50, 6f91afd3-34d7-4d2c-8ef7-8c7ce667ea66, 2714083219172029, mkmkm, 121.00, 2025-10-25 14:01:49.925844).
+
+[SQL: INSERT INTO "Account" (account_id, customer_id, account_number, account_type, current_balance) VALUES (%(account_id)s, %(customer_id)s, %(account_number)s, %(account_type)s, %(current_balance)s) RETURNING "Account".created_at]
+[parameters: {'account_id': 'c06f4e13-a373-4494-a2ac-b9f1e969cb50', 'customer_id': '6f91afd3-34d7-4d2c-8ef7-8c7ce667ea66', 'account_number': '2714083219172029', 'account_type': 'mkmkm', 'current_balance': 121.0}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-25 14:01:49,929 - services.signup_services - WARNING -  (IntegrityError).(psycopg2.errors.CheckViolation) new row for relation "Account" violates check constraint "account_type_check"
+DETAIL:  Failing row contains (c06f4e13-a373-4494-a2ac-b9f1e969cb50, 6f91afd3-34d7-4d2c-8ef7-8c7ce667ea66, 2714083219172029, mkmkm, 121.00, 2025-10-25 14:01:49.925844).
+
+[SQL: INSERT INTO "Account" (account_id, customer_id, account_number, account_type, current_balance) VALUES (%(account_id)s, %(customer_id)s, %(account_number)s, %(account_type)s, %(current_balance)s) RETURNING "Account".created_at]
+[parameters: {'account_id': 'c06f4e13-a373-4494-a2ac-b9f1e969cb50', 'customer_id': '6f91afd3-34d7-4d2c-8ef7-8c7ce667ea66', 'account_number': '2714083219172029', 'account_type': 'mkmkm', 'current_balance': 121.0}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-25 14:01:49,930 - controller.signup_login_controller - WARNING - Signup failed for mkmkmkmk: Username already exists.
+2025-10-25 14:01:55,641 - controller.signup_login_controller - INFO - Received signup request for username: mkmkmkmk, role: customer
+2025-10-25 14:01:56,486 - services.signup_services - INFO - Customer mkmkmkmk registered (ID: b2947018-395d-43ff-a7ae-7cf5f7c33a58). Account created. KYC pending.
+2025-10-25 14:02:04,779 - controller.signup_login_controller - INFO - Received login request for username: mkmkmkmk
+2025-10-25 14:02:05,633 - services.signup_services - INFO - User 'mkmkmkmk' authenticated successfully. Role: customer
+2025-10-25 14:02:06,311 - services.signup_services - INFO - JWT created for user: b2947018-395d-43ff-a7ae-7cf5f7c33a58, Role: customer
+2025-10-25 14:04:57,184 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 14:05:00,255 - main - INFO - Root endpoint accessed.
+2025-10-25 14:10:29,081 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 14:10:31,322 - main - INFO - Root endpoint accessed.
+2025-10-25 14:10:57,971 - controller.signup_login_controller - INFO - Received login request for username: mkmkmkmk
+2025-10-25 14:10:58,884 - services.signup_services - INFO - User 'mkmkmkmk' authenticated successfully. Role: customer
+2025-10-25 14:10:59,961 - services.signup_services - INFO - JWT created for user: b2947018-395d-43ff-a7ae-7cf5f7c33a58, Role: customer
+2025-10-25 14:11:17,314 - services.loan_services - WARNING - Loan application blocked: Customer b2947018-395d-43ff-a7ae-7cf5f7c33a58 KYC not approved.
+2025-10-25 14:12:37,732 - services.loan_services - INFO - New loan application submitted: ID 308edf35-8401-4916-bd49-c760fde983af by Customer b2947018-395d-43ff-a7ae-7cf5f7c33a58.
+2025-10-25 14:14:17,485 - controller.signup_login_controller - INFO - Received signup request for username: mervinjoseph2002, role: admin
+2025-10-25 14:14:18,463 - services.signup_services - INFO - Admin mervinjoseph2002 registered (ID: 06117528-9977-47d2-9a40-ee4ebf1caafb).
+2025-10-25 14:14:42,987 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002
+2025-10-25 14:14:43,974 - services.signup_services - INFO - User 'mervinjoseph2002' authenticated successfully. Role: admin
+2025-10-25 14:14:43,975 - services.signup_services - INFO - JWT created for user: 06117528-9977-47d2-9a40-ee4ebf1caafb, Role: admin
+2025-10-25 14:15:02,926 - services.loan_services - INFO - Funds 1.00 disbursed to account 1195846245432781.
+2025-10-25 14:15:02,934 - services.loan_services - INFO - Loan 308edf35-8401-4916-bd49-c760fde983af approved. EMI set to 1.
+2025-10-25 14:15:36,033 - controller.signup_login_controller - INFO - Received login request for username: mkmkmkmk
+2025-10-25 14:15:37,087 - services.signup_services - INFO - User 'mkmkmkmk' authenticated successfully. Role: customer
+2025-10-25 14:15:37,088 - services.signup_services - INFO - JWT created for user: b2947018-395d-43ff-a7ae-7cf5f7c33a58, Role: customer
+2025-10-25 14:15:50,165 - services.loan_services - INFO - New loan application submitted: ID 3bc8a7f7-03e6-42af-9d86-5f2fcaef5627 by Customer b2947018-395d-43ff-a7ae-7cf5f7c33a58.
+2025-10-25 14:16:26,082 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002
+2025-10-25 14:16:26,814 - services.signup_services - INFO - User 'mervinjoseph2002' authenticated successfully. Role: admin
+2025-10-25 14:16:26,815 - services.signup_services - INFO - JWT created for user: 06117528-9977-47d2-9a40-ee4ebf1caafb, Role: admin
+2025-10-25 14:17:02,753 - services.loan_services - INFO - Loan 3bc8a7f7-03e6-42af-9d86-5f2fcaef5627 rejected.
+2025-10-25 14:17:44,559 - controller.signup_login_controller - INFO - Received login request for username: mkmkmkmk
+2025-10-25 14:17:45,611 - services.signup_services - INFO - User 'mkmkmkmk' authenticated successfully. Role: customer
+2025-10-25 14:17:45,611 - services.signup_services - INFO - JWT created for user: b2947018-395d-43ff-a7ae-7cf5f7c33a58, Role: customer
+2025-10-25 14:26:13,967 - controller.signup_login_controller - INFO - Received signup request for username: mervinjoseph, role: customer
+2025-10-25 14:26:14,910 - services.signup_services - WARNING - (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "ix_User_username"
+DETAIL:  Key (username)=(mervinjoseph) already exists.
+
+[SQL: INSERT INTO "User" (user_id, username, hashed_password, role, last_login) VALUES (%(user_id)s, %(username)s, %(hashed_password)s, %(role)s, %(last_login)s)]
+[parameters: {'user_id': 'f8cc9bcb-ddd7-4e40-9877-5dd95ff3a295', 'username': 'mervinjoseph', 'hashed_password': '$5$rounds=535000$NR9eYKvE0H9VCPeS$rOBzgaxeabLUFXfgbOuMIytsCJopf8vqBqvIac0.Jy0', 'role': 'customer', 'last_login': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-25 14:26:14,911 - services.signup_services - WARNING -  (IntegrityError).(psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "ix_User_username"
+DETAIL:  Key (username)=(mervinjoseph) already exists.
+
+[SQL: INSERT INTO "User" (user_id, username, hashed_password, role, last_login) VALUES (%(user_id)s, %(username)s, %(hashed_password)s, %(role)s, %(last_login)s)]
+[parameters: {'user_id': 'f8cc9bcb-ddd7-4e40-9877-5dd95ff3a295', 'username': 'mervinjoseph', 'hashed_password': '$5$rounds=535000$NR9eYKvE0H9VCPeS$rOBzgaxeabLUFXfgbOuMIytsCJopf8vqBqvIac0.Jy0', 'role': 'customer', 'last_login': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-25 14:26:14,911 - controller.signup_login_controller - WARNING - Signup failed for mervinjoseph: Username already exists.
+2025-10-25 14:26:24,217 - controller.signup_login_controller - INFO - Received signup request for username: mervinjosephll, role: customer
+2025-10-25 14:26:25,075 - services.signup_services - INFO - Customer mervinjosephll registered (ID: 081fb0fa-a2cd-4d12-ad5d-6b0941dcb4c7). Account created. KYC pending.
+2025-10-25 14:27:00,839 - controller.signup_login_controller - INFO - Received login request for username: mervinjosephll
+2025-10-25 14:27:01,650 - services.signup_services - INFO - User 'mervinjosephll' authenticated successfully. Role: customer
+2025-10-25 14:27:01,652 - services.signup_services - INFO - JWT created for user: 081fb0fa-a2cd-4d12-ad5d-6b0941dcb4c7, Role: customer
+2025-10-25 14:34:13,038 - controller.signup_login_controller - INFO - Received login request for username: mervinjosephll
+2025-10-25 14:34:13,947 - services.signup_services - INFO - User 'mervinjosephll' authenticated successfully. Role: customer
+2025-10-25 14:34:13,948 - services.signup_services - INFO - JWT created for user: 081fb0fa-a2cd-4d12-ad5d-6b0941dcb4c7, Role: customer
+2025-10-25 14:36:07,449 - services.loan_services - WARNING - Loan application blocked: Customer 081fb0fa-a2cd-4d12-ad5d-6b0941dcb4c7 KYC not approved.
+2025-10-25 15:10:44,585 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 15:10:49,819 - main - INFO - Root endpoint accessed.
+2025-10-25 15:11:34,402 - controller.signup_login_controller - INFO - Received signup request for username: mervinjoseph2002020, role: customer
+2025-10-25 15:11:35,405 - services.signup_services - INFO - Customer mervinjoseph2002020 registered (ID: 604cfd55-afca-40ca-9e13-520b10d2d826). Account created. KYC pending.
+2025-10-25 15:12:15,799 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002020
+2025-10-25 15:12:16,901 - services.signup_services - INFO - User 'mervinjoseph2002020' authenticated successfully. Role: customer
+2025-10-25 15:12:17,344 - services.signup_services - INFO - JWT created for user: 604cfd55-afca-40ca-9e13-520b10d2d826, Role: customer
+2025-10-25 15:12:37,590 - services.loan_services - WARNING - Loan application blocked: Customer 604cfd55-afca-40ca-9e13-520b10d2d826 KYC not approved (Status: Not Approved).
+2025-10-25 15:13:13,667 - services.kyc_services - INFO - KYC details submitted for customer 604cfd55-afca-40ca-9e13-520b10d2d826. Status: In Progress.
+2025-10-25 15:14:03,142 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002
+2025-10-25 15:14:03,863 - services.signup_services - INFO - User 'mervinjoseph2002' authenticated successfully. Role: admin
+2025-10-25 15:14:03,863 - services.signup_services - INFO - JWT created for user: 06117528-9977-47d2-9a40-ee4ebf1caafb, Role: admin
+2025-10-25 15:14:41,385 - services.kyc_services - INFO - KYC for customer 604cfd55-afca-40ca-9e13-520b10d2d826 set to Approved.
+2025-10-25 15:15:01,093 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002020
+2025-10-25 15:15:01,955 - services.signup_services - INFO - User 'mervinjoseph2002020' authenticated successfully. Role: customer
+2025-10-25 15:15:01,956 - services.signup_services - INFO - JWT created for user: 604cfd55-afca-40ca-9e13-520b10d2d826, Role: customer
+2025-10-25 15:15:09,148 - services.loan_services - INFO - New loan application submitted: ID b8e5e2a0-047c-4318-8605-8e51b91e7ac0 by Customer 604cfd55-afca-40ca-9e13-520b10d2d826.
+2025-10-25 15:16:17,795 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002
+2025-10-25 15:16:18,620 - services.signup_services - INFO - User 'mervinjoseph2002' authenticated successfully. Role: admin
+2025-10-25 15:16:18,621 - services.signup_services - INFO - JWT created for user: 06117528-9977-47d2-9a40-ee4ebf1caafb, Role: admin
+2025-10-25 15:17:04,109 - services.loan_services - INFO - Funds 1.00 disbursed to account 3065010442123645.
+2025-10-25 15:17:04,119 - services.loan_services - INFO - Loan b8e5e2a0-047c-4318-8605-8e51b91e7ac0 approved. EMI set to 10.
+2025-10-25 15:17:22,629 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002020
+2025-10-25 15:17:23,506 - services.signup_services - INFO - User 'mervinjoseph2002020' authenticated successfully. Role: customer
+2025-10-25 15:17:23,507 - services.signup_services - INFO - JWT created for user: 604cfd55-afca-40ca-9e13-520b10d2d826, Role: customer
