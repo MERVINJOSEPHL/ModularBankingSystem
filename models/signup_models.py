@@ -9,6 +9,7 @@ class UserRole(str, Enum):
     """Defines the possible user roles."""
     CUSTOMER = "customer"
     ADMIN = "admin"
+    AUDITOR = "auditor"
 
 
 class SignUpRequest(BaseModel):

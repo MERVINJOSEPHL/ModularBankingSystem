@@ -13,6 +13,7 @@ from typing import Optional
 from models.orm_models import User, Customer, Account 
 from models.signup_models import SignUpRequest, LoginRequest, UserRole
 from utility.logging import setup_logger 
+from services.audit_services import create_audit_log
 
 logger = setup_logger(__name__)
 
@@ -79,11 +80,17 @@ def register_user_orm(db: Session, user_data: SignUpRequest) -> uuid.UUID:
             db.add(db_account)
             
             db.commit() 
+            action = f"{user_data.role.value.upper()} registered."
+            details = {"username": user_data.username}
+            create_audit_log(db, str(new_user_id), action, details=details)
             logger.info(f"Customer {user_data.username} registered (ID: {new_user_id}). Account created. KYC pending.")
 
         elif user_data.role == UserRole.ADMIN:
             db.commit() 
             logger.info(f"Admin {user_data.username} registered (ID: {new_user_id}).")
+        elif user_data.role == UserRole.AUDITOR:
+            db.commit()
+            logger.info(f"Auditor {user_data.username} registered (ID: {new_user_id}).")
             
         else:
             db.rollback()

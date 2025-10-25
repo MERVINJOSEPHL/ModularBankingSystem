@@ -11,6 +11,7 @@ from models.kyc_models import (
     DerivedKYCStatus, KYCDocument
 )
 from utility.logging import setup_logger
+from services.audit_services import create_audit_log
 
 logger = setup_logger(__name__)
 
@@ -122,7 +123,12 @@ def review_kyc_application(db: Session, customer_id: uuid.UUID, request: KYCRevi
         message = f"KYC for customer {customer_id} reverted to In Progress/Pending."
     else:
         message = f"KYC for customer {customer_id} set to Approved."
+    admin_id = None # Need to get Admin ID, but let's assume it's passed via dependency if available
+    action = f"KYC Review: {customer_id} set to {customer.kyc_status}"
+    details = {"customer_id": str(customer_id), "new_status": customer.kyc_status}
     
+    # NOTE: In a real app, you'd pass the actual admin_id here. For now, we log the action.
+    create_audit_log(db, admin_id, action, details=details)
     try:
         db.commit()
         db.refresh(customer)

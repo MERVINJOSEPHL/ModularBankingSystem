@@ -280,3 +280,397 @@ DETAIL:  Key (username)=(mervinjoseph) already exists.
 2025-10-25 15:17:22,629 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002020
 2025-10-25 15:17:23,506 - services.signup_services - INFO - User 'mervinjoseph2002020' authenticated successfully. Role: customer
 2025-10-25 15:17:23,507 - services.signup_services - INFO - JWT created for user: 604cfd55-afca-40ca-9e13-520b10d2d826, Role: customer
+2025-10-25 15:39:06,937 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 15:39:14,465 - main - INFO - Root endpoint accessed.
+2025-10-25 15:48:15,774 - controller.signup_login_controller - INFO - Received signup request for username: mervin.s, role: customer
+2025-10-25 15:48:17,873 - services.signup_services - INFO - Customer mervin.s registered (ID: d8bacd7d-5691-4780-85d9-042fe7629704). Account created. KYC pending.
+2025-10-25 15:48:54,211 - controller.signup_login_controller - INFO - Received login request for username: mervin.s
+2025-10-25 15:48:55,947 - services.signup_services - INFO - User 'mervin.s' authenticated successfully. Role: customer
+2025-10-25 15:48:56,377 - services.signup_services - INFO - JWT created for user: d8bacd7d-5691-4780-85d9-042fe7629704, Role: customer
+2025-10-25 15:52:33,318 - services.transaction_services - INFO - Transaction 04f0f4ef-d9ce-407c-8c0d-b8338f540714: 10000.00 transferred. Daily usage for 3912207600060226 is now 10000.00.
+2025-10-25 15:53:28,596 - services.transaction_services - WARNING - Transaction failed for 3912207600060226: Insufficient funds.
+2025-10-25 16:16:01,905 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 16:16:10,931 - main - INFO - Root endpoint accessed.
+2025-10-25 16:17:15,931 - controller.signup_login_controller - INFO - Received signup request for username: mervinjoseph2002@gmail.com, role: customer
+2025-10-25 16:17:18,473 - services.signup_services - INFO - Customer mervinjoseph2002@gmail.com registered (ID: 94ed31c3-5e0e-4953-a3fb-e87643e2d947). Account created. KYC pending.
+2025-10-25 16:18:03,565 - controller.signup_login_controller - INFO - Received signup request for username: mervinjoseph2002@google.com, role: admin
+2025-10-25 16:18:05,209 - services.signup_services - INFO - Admin mervinjoseph2002@google.com registered (ID: 35158ea9-587f-4f8d-8f12-3b5e2b0af064).
+2025-10-25 16:21:09,017 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 16:21:24,002 - controller.signup_login_controller - INFO - Received signup request for username: mervinjoseph2002@google.com, role: admin
+2025-10-25 16:21:25,725 - services.signup_services - WARNING - (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "ix_User_username"
+DETAIL:  Key (username)=(mervinjoseph2002@google.com) already exists.
+
+[SQL: INSERT INTO "User" (user_id, username, hashed_password, role, last_login) VALUES (%(user_id)s, %(username)s, %(hashed_password)s, %(role)s, %(last_login)s)]
+[parameters: {'user_id': '03a9569d-d292-4fab-993e-e093c3ce9a02', 'username': 'mervinjoseph2002@google.com', 'hashed_password': '$5$rounds=535000$ut64S9yDnHmY969Z$ETGNqIpedXUmCuk9f5yynYQWqJFfBclLEFWztRt.29/', 'role': 'admin', 'last_login': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-25 16:21:25,815 - services.signup_services - WARNING -  (IntegrityError).(psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "ix_User_username"
+DETAIL:  Key (username)=(mervinjoseph2002@google.com) already exists.
+
+[SQL: INSERT INTO "User" (user_id, username, hashed_password, role, last_login) VALUES (%(user_id)s, %(username)s, %(hashed_password)s, %(role)s, %(last_login)s)]
+[parameters: {'user_id': '03a9569d-d292-4fab-993e-e093c3ce9a02', 'username': 'mervinjoseph2002@google.com', 'hashed_password': '$5$rounds=535000$ut64S9yDnHmY969Z$ETGNqIpedXUmCuk9f5yynYQWqJFfBclLEFWztRt.29/', 'role': 'admin', 'last_login': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-25 16:21:25,816 - controller.signup_login_controller - WARNING - Signup failed for mervinjoseph2002@google.com: Username already exists.
+2025-10-25 16:21:32,540 - controller.signup_login_controller - INFO - Received signup request for username: mervinjoseph2002@hcl.com, role: auditor
+2025-10-25 16:21:34,211 - services.signup_services - INFO - Auditor mervinjoseph2002@hcl.com registered (ID: 99f946cf-9af1-4179-bb66-978194268878).
+2025-10-25 16:22:22,182 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@hcl.com
+2025-10-25 16:22:24,042 - services.signup_services - INFO - User 'mervinjoseph2002@hcl.com' authenticated successfully. Role: auditor
+2025-10-25 16:22:24,102 - services.signup_services - INFO - JWT created for user: 99f946cf-9af1-4179-bb66-978194268878, Role: auditor
+2025-10-25 16:23:55,530 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@gmail.com
+2025-10-25 16:23:56,256 - services.signup_services - INFO - User 'mervinjoseph2002@gmail.com' authenticated successfully. Role: customer
+2025-10-25 16:23:56,256 - services.signup_services - INFO - JWT created for user: 94ed31c3-5e0e-4953-a3fb-e87643e2d947, Role: customer
+2025-10-25 16:24:25,146 - services.kyc_services - INFO - KYC details submitted for customer 94ed31c3-5e0e-4953-a3fb-e87643e2d947. Status: In Progress.
+2025-10-25 16:24:51,321 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@google.com
+2025-10-25 16:24:52,242 - services.signup_services - INFO - User 'mervinjoseph2002@google.com' authenticated successfully. Role: admin
+2025-10-25 16:24:52,242 - services.signup_services - INFO - JWT created for user: 35158ea9-587f-4f8d-8f12-3b5e2b0af064, Role: admin
+2025-10-25 16:25:29,730 - services.kyc_services - INFO - KYC for customer 94ed31c3-5e0e-4953-a3fb-e87643e2d947 set to Approved.
+2025-10-25 16:26:12,504 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@hcl.com
+2025-10-25 16:26:13,614 - services.signup_services - INFO - User 'mervinjoseph2002@hcl.com' authenticated successfully. Role: auditor
+2025-10-25 16:26:13,615 - services.signup_services - INFO - JWT created for user: 99f946cf-9af1-4179-bb66-978194268878, Role: auditor
+2025-10-25 16:41:38,896 - controller.signup_login_controller - INFO - Received signup request for username: Mervin Joseph L, role: customer
+2025-10-25 16:41:43,775 - services.signup_services - INFO - Customer Mervin Joseph L registered (ID: 872490ce-4d55-4721-84d7-00e7636fc949). Account created. KYC pending.
+2025-10-25 16:42:18,829 - controller.signup_login_controller - INFO - Received login request for username: Mervin Joseph L
+2025-10-25 16:42:19,721 - services.signup_services - INFO - User 'Mervin Joseph L' authenticated successfully. Role: customer
+2025-10-25 16:42:19,753 - services.signup_services - INFO - JWT created for user: 872490ce-4d55-4721-84d7-00e7636fc949, Role: customer
+2025-10-25 16:43:43,446 - controller.signup_login_controller - INFO - Received login request for username: MERVIN JOSEPH L
+2025-10-25 16:43:43,450 - services.signup_services - WARNING - Login attempt failed: Invalid credentials for MERVIN JOSEPH L.
+2025-10-25 16:43:43,505 - services.signup_services - ERROR - Error during ORM user authentication: Invalid username or password.
+2025-10-25 16:43:43,505 - controller.signup_login_controller - WARNING - Login failed for MERVIN JOSEPH L: Invalid credentials.
+2025-10-25 16:43:50,214 - controller.signup_login_controller - INFO - Received login request for username: MERVIN JOSEPH L
+2025-10-25 16:43:50,260 - services.signup_services - WARNING - Login attempt failed: Invalid credentials for MERVIN JOSEPH L.
+2025-10-25 16:43:50,261 - services.signup_services - ERROR - Error during ORM user authentication: Invalid username or password.
+2025-10-25 16:43:50,261 - controller.signup_login_controller - WARNING - Login failed for MERVIN JOSEPH L: Invalid credentials.
+2025-10-25 16:43:52,306 - controller.signup_login_controller - INFO - Received login request for username: MERVIN JOSEPH L
+2025-10-25 16:43:52,346 - services.signup_services - WARNING - Login attempt failed: Invalid credentials for MERVIN JOSEPH L.
+2025-10-25 16:43:52,346 - services.signup_services - ERROR - Error during ORM user authentication: Invalid username or password.
+2025-10-25 16:43:52,347 - controller.signup_login_controller - WARNING - Login failed for MERVIN JOSEPH L: Invalid credentials.
+2025-10-25 16:44:21,275 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@google.com
+2025-10-25 16:44:22,116 - services.signup_services - INFO - User 'mervinjoseph2002@google.com' authenticated successfully. Role: admin
+2025-10-25 16:44:22,116 - services.signup_services - INFO - JWT created for user: 35158ea9-587f-4f8d-8f12-3b5e2b0af064, Role: admin
+2025-10-25 16:45:02,587 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@google.com
+2025-10-25 16:45:03,319 - services.signup_services - INFO - User 'mervinjoseph2002@google.com' authenticated successfully. Role: admin
+2025-10-25 16:45:03,319 - services.signup_services - INFO - JWT created for user: 35158ea9-587f-4f8d-8f12-3b5e2b0af064, Role: admin
+2025-10-25 16:46:04,347 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@gmail.com
+2025-10-25 16:46:05,145 - services.signup_services - INFO - User 'mervinjoseph2002@gmail.com' authenticated successfully. Role: customer
+2025-10-25 16:46:05,146 - services.signup_services - INFO - JWT created for user: 94ed31c3-5e0e-4953-a3fb-e87643e2d947, Role: customer
+2025-10-25 16:46:59,062 - services.loan_services - INFO - New loan application submitted: ID 2796c773-0f50-4a05-afc6-1501cf29dbe2 by Customer 94ed31c3-5e0e-4953-a3fb-e87643e2d947.
+2025-10-25 16:47:23,875 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@google.com
+2025-10-25 16:47:24,539 - services.signup_services - INFO - User 'mervinjoseph2002@google.com' authenticated successfully. Role: admin
+2025-10-25 16:47:24,541 - services.signup_services - INFO - JWT created for user: 35158ea9-587f-4f8d-8f12-3b5e2b0af064, Role: admin
+2025-10-25 16:49:20,386 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@google.com
+2025-10-25 16:49:21,094 - services.signup_services - INFO - User 'mervinjoseph2002@google.com' authenticated successfully. Role: admin
+2025-10-25 16:49:21,095 - services.signup_services - INFO - JWT created for user: 35158ea9-587f-4f8d-8f12-3b5e2b0af064, Role: admin
+2025-10-25 16:49:33,714 - services.loan_services - INFO - Funds 1000.00 disbursed to account 2006743437451321.
+2025-10-25 16:49:33,901 - services.loan_services - INFO - Loan 2796c773-0f50-4a05-afc6-1501cf29dbe2 approved. EMI set to 1.0.
+2025-10-25 16:50:01,500 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@gmail.com
+2025-10-25 16:50:02,316 - services.signup_services - INFO - User 'mervinjoseph2002@gmail.com' authenticated successfully. Role: customer
+2025-10-25 16:50:02,317 - services.signup_services - INFO - JWT created for user: 94ed31c3-5e0e-4953-a3fb-e87643e2d947, Role: customer
+2025-10-25 16:51:30,866 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@gmail.com
+2025-10-25 16:51:31,517 - services.signup_services - INFO - User 'mervinjoseph2002@gmail.com' authenticated successfully. Role: customer
+2025-10-25 16:51:31,518 - services.signup_services - INFO - JWT created for user: 94ed31c3-5e0e-4953-a3fb-e87643e2d947, Role: customer
+2025-10-25 16:52:33,676 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@google.com
+2025-10-25 16:52:34,672 - services.signup_services - INFO - User 'mervinjoseph2002@google.com' authenticated successfully. Role: admin
+2025-10-25 16:52:34,673 - services.signup_services - INFO - JWT created for user: 35158ea9-587f-4f8d-8f12-3b5e2b0af064, Role: admin
+2025-10-25 16:52:51,912 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@gmail.com
+2025-10-25 16:52:52,675 - services.signup_services - INFO - User 'mervinjoseph2002@gmail.com' authenticated successfully. Role: customer
+2025-10-25 16:52:52,677 - services.signup_services - INFO - JWT created for user: 94ed31c3-5e0e-4953-a3fb-e87643e2d947, Role: customer
+2025-10-25 16:54:05,846 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@hcl.com
+2025-10-25 16:54:07,035 - services.signup_services - INFO - User 'mervinjoseph2002@hcl.com' authenticated successfully. Role: auditor
+2025-10-25 16:54:07,036 - services.signup_services - INFO - JWT created for user: 99f946cf-9af1-4179-bb66-978194268878, Role: auditor
+2025-10-25 16:56:15,072 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@hcl.com
+2025-10-25 16:56:15,872 - services.signup_services - INFO - User 'mervinjoseph2002@hcl.com' authenticated successfully. Role: auditor
+2025-10-25 16:56:15,873 - services.signup_services - INFO - JWT created for user: 99f946cf-9af1-4179-bb66-978194268878, Role: auditor
+2025-10-25 16:58:25,022 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@gmail.com
+2025-10-25 16:58:25,875 - services.signup_services - INFO - User 'mervinjoseph2002@gmail.com' authenticated successfully. Role: customer
+2025-10-25 16:58:25,876 - services.signup_services - INFO - JWT created for user: 94ed31c3-5e0e-4953-a3fb-e87643e2d947, Role: customer
+2025-10-25 16:59:26,508 - services.transaction_services - INFO - Transaction 806a729f-b511-4852-853d-d86e9ebe1e77: 1000.00 transferred. Daily usage for 2006743437451321 is now 1000.00.
+2025-10-25 17:03:00,773 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@hcl.com
+2025-10-25 17:03:01,535 - services.signup_services - INFO - User 'mervinjoseph2002@hcl.com' authenticated successfully. Role: auditor
+2025-10-25 17:03:01,536 - services.signup_services - INFO - JWT created for user: 99f946cf-9af1-4179-bb66-978194268878, Role: auditor
+2025-10-25 17:03:58,445 - controller.signup_login_controller - INFO - Received login request for username: mervinjoseph2002@hcl.com
+2025-10-25 17:03:59,458 - services.signup_services - INFO - User 'mervinjoseph2002@hcl.com' authenticated successfully. Role: auditor
+2025-10-25 17:03:59,459 - services.signup_services - INFO - JWT created for user: 99f946cf-9af1-4179-bb66-978194268878, Role: auditor
+2025-10-25 17:04:42,142 - controller.signup_login_controller - INFO - Received signup request for username: Mervin001, role: customer
+2025-10-25 17:04:43,023 - services.signup_services - INFO - Customer Mervin001 registered (ID: aca3f5ee-f1ce-40d2-a077-c9bcbfeccb50). Account created. KYC pending.
+2025-10-25 17:04:49,236 - controller.signup_login_controller - INFO - Received login request for username: Mervin001
+2025-10-25 17:04:50,050 - services.signup_services - INFO - User 'Mervin001' authenticated successfully. Role: customer
+2025-10-25 17:04:50,051 - services.signup_services - INFO - JWT created for user: aca3f5ee-f1ce-40d2-a077-c9bcbfeccb50, Role: customer
+2025-10-25 17:04:59,660 - services.loan_services - WARNING - Loan application blocked: Customer aca3f5ee-f1ce-40d2-a077-c9bcbfeccb50 KYC not approved (Status: Not Approved).
+2025-10-25 17:05:47,391 - controller.signup_login_controller - INFO - Received login request for username: Mervin001
+2025-10-25 17:05:48,235 - services.signup_services - INFO - User 'Mervin001' authenticated successfully. Role: customer
+2025-10-25 17:05:48,236 - services.signup_services - INFO - JWT created for user: aca3f5ee-f1ce-40d2-a077-c9bcbfeccb50, Role: customer
+2025-10-25 17:06:44,168 - controller.signup_login_controller - INFO - Received login request for username: Mervin001
+2025-10-25 17:06:44,940 - services.signup_services - INFO - User 'Mervin001' authenticated successfully. Role: customer
+2025-10-25 17:06:44,941 - services.signup_services - INFO - JWT created for user: aca3f5ee-f1ce-40d2-a077-c9bcbfeccb50, Role: customer
+2025-10-25 17:06:53,778 - services.loan_services - WARNING - Loan application blocked: Customer aca3f5ee-f1ce-40d2-a077-c9bcbfeccb50 KYC not approved (Status: Not Approved).
+2025-10-25 17:07:36,938 - controller.signup_login_controller - INFO - Received login request for username: Mervin001
+2025-10-25 17:07:37,741 - services.signup_services - INFO - User 'Mervin001' authenticated successfully. Role: customer
+2025-10-25 17:07:37,742 - services.signup_services - INFO - JWT created for user: aca3f5ee-f1ce-40d2-a077-c9bcbfeccb50, Role: customer
+2025-10-25 17:14:51,651 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 17:14:51,782 - controller.signup_login_controller - INFO - Received signup request for username: testauditor, role: auditor
+2025-10-25 17:14:51,849 - controller.signup_login_controller - INFO - Received signup request for username: testcustomer, role: customer
+2025-10-25 17:14:51,850 - controller.signup_login_controller - WARNING - Signup failed for testcustomer: Username already exists.
+2025-10-25 17:14:51,886 - controller.signup_login_controller - INFO - Received login request for username: admin
+2025-10-25 17:14:51,905 - controller.signup_login_controller - INFO - Received login request for username: user
+2025-10-25 17:14:51,905 - controller.signup_login_controller - WARNING - Login failed for user: Invalid credentials.
+2025-10-25 17:14:51,921 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,220 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,245 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,263 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,281 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,300 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,320 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,347 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,367 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,387 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,411 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,432 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,453 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,476 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,499 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,517 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,535 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,554 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:14:52,576 - utility.auth - WARNING - JWT Decoding Error: Invalid header string: 'utf-8' codec can't decode byte 0x9a in position 0: invalid start byte
+2025-10-25 17:15:44,627 - controller.signup_login_controller - INFO - Received signup request for username: Mervin002, role: customer
+2025-10-25 17:15:45,923 - services.signup_services - INFO - Customer Mervin002 registered (ID: 7318887b-cffe-485b-b8ec-880437572e67). Account created. KYC pending.
+2025-10-25 17:16:01,430 - controller.signup_login_controller - INFO - Received login request for username: Mervin002
+2025-10-25 17:16:02,212 - services.signup_services - INFO - User 'Mervin002' authenticated successfully. Role: customer
+2025-10-25 17:16:02,213 - services.signup_services - INFO - JWT created for user: 7318887b-cffe-485b-b8ec-880437572e67, Role: customer
+2025-10-25 17:16:08,226 - services.loan_services - WARNING - Loan application blocked: Customer 7318887b-cffe-485b-b8ec-880437572e67 KYC not approved (Status: Not Approved).
+2025-10-25 17:16:38,700 - services.kyc_services - INFO - KYC details submitted for customer 7318887b-cffe-485b-b8ec-880437572e67. Status: In Progress.
+2025-10-25 17:17:44,451 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 17:17:44,492 - main - INFO - Root endpoint accessed.
+2025-10-25 17:17:44,506 - controller.signup_login_controller - INFO - Received signup request for username: testcustomer, role: customer
+2025-10-25 17:17:44,517 - controller.signup_login_controller - INFO - Received signup request for username: existinguser, role: customer
+2025-10-25 17:17:44,518 - controller.signup_login_controller - WARNING - Signup failed for existinguser: Username already exists.
+2025-10-25 17:22:07,762 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 17:22:17,217 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 17:22:17,253 - main - INFO - Root endpoint accessed.
+2025-10-25 17:22:17,264 - controller.signup_login_controller - INFO - Received signup request for username: testauditor, role: auditor
+2025-10-25 17:22:17,283 - controller.signup_login_controller - INFO - Received signup request for username: testcustomer, role: customer
+2025-10-25 17:22:17,284 - controller.signup_login_controller - WARNING - Signup failed for testcustomer: Username already exists.
+2025-10-25 17:22:17,299 - controller.signup_login_controller - INFO - Received login request for username: admin
+2025-10-25 17:22:17,313 - controller.signup_login_controller - INFO - Received login request for username: user
+2025-10-25 17:22:17,313 - controller.signup_login_controller - WARNING - Login failed for user: Invalid credentials.
+2025-10-25 17:22:17,326 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,484 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,507 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,526 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,552 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,579 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,600 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,639 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,671 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,699 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,726 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,757 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,791 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,815 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,847 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,870 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,893 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,909 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:22:17,927 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:23:45,732 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 17:23:45,771 - main - INFO - Root endpoint accessed.
+2025-10-25 17:23:45,783 - controller.signup_login_controller - INFO - Received signup request for username: testauditor, role: auditor
+2025-10-25 17:23:45,806 - controller.signup_login_controller - INFO - Received signup request for username: testcustomer, role: customer
+2025-10-25 17:23:45,807 - controller.signup_login_controller - WARNING - Signup failed for testcustomer: Username already exists.
+2025-10-25 17:23:45,822 - controller.signup_login_controller - INFO - Received login request for username: admin
+2025-10-25 17:23:45,836 - controller.signup_login_controller - INFO - Received login request for username: user
+2025-10-25 17:23:45,836 - controller.signup_login_controller - WARNING - Login failed for user: Invalid credentials.
+2025-10-25 17:23:45,851 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230585427680'>
+2025-10-25 17:23:45,851 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,086 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230585439440'>
+2025-10-25 17:23:46,086 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,117 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230583713072'>
+2025-10-25 17:23:46,117 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,145 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230585440784'>
+2025-10-25 17:23:46,146 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,167 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230586496000'>
+2025-10-25 17:23:46,168 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,187 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230586502384'>
+2025-10-25 17:23:46,187 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,205 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230587196816'>
+2025-10-25 17:23:46,206 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,231 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230587203200'>
+2025-10-25 17:23:46,232 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,250 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230585429024'>
+2025-10-25 17:23:46,250 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,273 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230583713072'>
+2025-10-25 17:23:46,273 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,298 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230587207232'>
+2025-10-25 17:23:46,298 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,318 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230587131952'>
+2025-10-25 17:23:46,318 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,338 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230587138336'>
+2025-10-25 17:23:46,338 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,366 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230587211264'>
+2025-10-25 17:23:46,366 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,432 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230587198160'>
+2025-10-25 17:23:46,433 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,454 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230587204208'>
+2025-10-25 17:23:46,454 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,476 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230583712400'>
+2025-10-25 17:23:46,476 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,500 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230585439104'>
+2025-10-25 17:23:46,500 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:23:46,523 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2230585427680'>
+2025-10-25 17:23:46,524 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:24:54,865 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 17:24:55,091 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:24:55,114 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:24:55,186 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:24:55,213 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:24:55,236 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:24:55,256 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:24:55,285 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:24:55,318 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:24:55,350 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:24:55,376 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:24:55,405 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:24:55,421 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:24:55,442 - utility.auth - WARNING - JWT Decoding Error: Not enough segments
+2025-10-25 17:25:04,053 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 17:25:04,087 - main - INFO - Root endpoint accessed.
+2025-10-25 17:25:04,100 - controller.signup_login_controller - INFO - Received signup request for username: testcustomer, role: customer
+2025-10-25 17:25:04,108 - controller.signup_login_controller - INFO - Received signup request for username: existinguser, role: customer
+2025-10-25 17:25:04,109 - controller.signup_login_controller - WARNING - Signup failed for existinguser: Username already exists.
+2025-10-25 17:29:47,128 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 17:29:47,169 - main - INFO - Root endpoint accessed.
+2025-10-25 17:29:47,181 - controller.signup_login_controller - INFO - Received signup request for username: testauditor, role: auditor
+2025-10-25 17:29:47,204 - controller.signup_login_controller - INFO - Received signup request for username: testcustomer, role: customer
+2025-10-25 17:29:47,204 - controller.signup_login_controller - WARNING - Signup failed for testcustomer: Username already exists.
+2025-10-25 17:29:47,219 - controller.signup_login_controller - INFO - Received login request for username: admin
+2025-10-25 17:29:47,232 - controller.signup_login_controller - INFO - Received login request for username: user
+2025-10-25 17:29:47,232 - controller.signup_login_controller - WARNING - Login failed for user: Invalid credentials.
+2025-10-25 17:29:47,243 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730306590368'>
+2025-10-25 17:29:47,243 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,439 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730309438832'>
+2025-10-25 17:29:47,439 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,466 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730308345808'>
+2025-10-25 17:29:47,466 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,491 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730306595072'>
+2025-10-25 17:29:47,492 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,519 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730309440848'>
+2025-10-25 17:29:47,520 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,545 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730309447232'>
+2025-10-25 17:29:47,546 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,567 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730310174432'>
+2025-10-25 17:29:47,567 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,588 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730310180816'>
+2025-10-25 17:29:47,588 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,607 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730309446560'>
+2025-10-25 17:29:47,607 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,627 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730306591712'>
+2025-10-25 17:29:47,628 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,650 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730308341440'>
+2025-10-25 17:29:47,650 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,671 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730308347824'>
+2025-10-25 17:29:47,671 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,690 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730310181488'>
+2025-10-25 17:29:47,690 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,715 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730308349168'>
+2025-10-25 17:29:47,716 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,777 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730308345472'>
+2025-10-25 17:29:47,777 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,795 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730306593728'>
+2025-10-25 17:29:47,796 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,813 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730310179472'>
+2025-10-25 17:29:47,814 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,831 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730310181488'>
+2025-10-25 17:29:47,831 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:29:47,849 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2730308487216'>
+2025-10-25 17:29:47,849 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:25,535 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 17:30:25,573 - main - INFO - Root endpoint accessed.
+2025-10-25 17:30:25,585 - controller.signup_login_controller - INFO - Received signup request for username: testauditor, role: auditor
+2025-10-25 17:30:25,608 - controller.signup_login_controller - INFO - Received signup request for username: testcustomer, role: customer
+2025-10-25 17:30:25,608 - controller.signup_login_controller - WARNING - Signup failed for testcustomer: Username already exists.
+2025-10-25 17:30:25,624 - controller.signup_login_controller - INFO - Received login request for username: admin
+2025-10-25 17:30:25,638 - controller.signup_login_controller - INFO - Received login request for username: user
+2025-10-25 17:30:25,640 - controller.signup_login_controller - WARNING - Login failed for user: Invalid credentials.
+2025-10-25 17:30:25,653 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196217681568'>
+2025-10-25 17:30:25,653 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:25,823 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196220513984'>
+2025-10-25 17:30:25,824 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:25,843 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196219371808'>
+2025-10-25 17:30:25,843 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:25,862 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196217686608'>
+2025-10-25 17:30:25,862 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:25,885 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196220515664'>
+2025-10-25 17:30:25,885 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:25,906 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196220522048'>
+2025-10-25 17:30:25,907 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:25,924 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196221232864'>
+2025-10-25 17:30:25,925 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:25,944 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196221239248'>
+2025-10-25 17:30:25,945 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:25,964 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196220521376'>
+2025-10-25 17:30:25,965 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:25,983 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196217683248'>
+2025-10-25 17:30:25,984 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:26,007 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196219367440'>
+2025-10-25 17:30:26,007 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:26,026 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196219373824'>
+2025-10-25 17:30:26,026 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:26,043 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196221239920'>
+2025-10-25 17:30:26,043 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:26,074 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196219375168'>
+2025-10-25 17:30:26,074 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:26,153 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196219365088'>
+2025-10-25 17:30:26,153 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:26,176 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196217688288'>
+2025-10-25 17:30:26,176 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:26,200 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196221237904'>
+2025-10-25 17:30:26,201 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:26,226 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196221239920'>
+2025-10-25 17:30:26,227 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:30:26,254 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2196219578416'>
+2025-10-25 17:30:26,254 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:20,441 - main - INFO - Database tables created successfully or already exist.
+2025-10-25 17:33:20,509 - main - INFO - Root endpoint accessed.
+2025-10-25 17:33:20,526 - controller.signup_login_controller - INFO - Received signup request for username: testauditor, role: auditor
+2025-10-25 17:33:20,560 - controller.signup_login_controller - INFO - Received signup request for username: testcustomer, role: customer
+2025-10-25 17:33:20,560 - controller.signup_login_controller - WARNING - Signup failed for testcustomer: Username already exists.
+2025-10-25 17:33:20,579 - controller.signup_login_controller - INFO - Received login request for username: admin
+2025-10-25 17:33:20,603 - controller.signup_login_controller - INFO - Received login request for username: user
+2025-10-25 17:33:20,603 - controller.signup_login_controller - WARNING - Login failed for user: Invalid credentials.
+2025-10-25 17:33:20,620 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824289326416'>
+2025-10-25 17:33:20,620 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:20,822 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824291765280'>
+2025-10-25 17:33:20,822 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:20,839 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824291032368'>
+2025-10-25 17:33:20,840 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:20,860 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824289331120'>
+2025-10-25 17:33:20,860 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:20,881 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824291767296'>
+2025-10-25 17:33:20,882 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:20,899 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824291773680'>
+2025-10-25 17:33:20,899 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:20,917 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824292746640'>
+2025-10-25 17:33:20,917 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:20,941 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824292753024'>
+2025-10-25 17:33:20,941 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:20,966 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824291772000'>
+2025-10-25 17:33:20,966 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:20,987 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824289328096'>
+2025-10-25 17:33:20,987 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:21,011 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824291028000'>
+2025-10-25 17:33:21,011 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:21,033 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824291032704'>
+2025-10-25 17:33:21,033 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:21,056 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824292753696'>
+2025-10-25 17:33:21,057 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:21,079 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824291036400'>
+2025-10-25 17:33:21,079 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:21,144 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824291033040'>
+2025-10-25 17:33:21,145 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:21,164 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824289327088'>
+2025-10-25 17:33:21,165 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:21,186 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824292753024'>
+2025-10-25 17:33:21,186 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:21,204 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824292746640'>
+2025-10-25 17:33:21,204 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists
+2025-10-25 17:33:21,226 - utility.auth - WARNING - Authentication failed: Role mismatch for dummy. Token role: dummy, DB role: <MagicMock name='mock.query().filter().first().role' id='2824292959968'>
+2025-10-25 17:33:21,227 - utility.auth - ERROR - Database error during user validation: 401: Could not validate credentials or user no longer exists

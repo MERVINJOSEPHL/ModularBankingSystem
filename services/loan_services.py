@@ -8,6 +8,7 @@ from datetime import datetime
 import uuid
 from typing import List,Optional
 
+from services.audit_services import create_audit_log
 from models.orm_models import Loan, Customer, Account, User # Ensure these are imported
 from models.loan_models import (
     EMICalculationRequest, LoanApplicationRequest, LoanDetailResponse, 
@@ -139,6 +140,7 @@ def review_loan_application(db: Session, loan_id: uuid.UUID, request: LoanApprov
             status_code=status.HTTP_400_BAD_REQUEST,
             detail=f"Loan is already {loan.loan_status}. Cannot review."
         )
+    
 
     # 1. Update loan status and details
     new_status = request.loan_status.value
@@ -164,7 +166,12 @@ def review_loan_application(db: Session, loan_id: uuid.UUID, request: LoanApprov
         loan.emi_amount = None
         loan.start_date = None
         message = f"Loan {loan_id} rejected."
-        
+    admin_id = None # Need to get Admin ID
+    action = f"Loan Review: {loan_id} set to {new_status}"
+    details = {"loan_id": str(loan_id), "customer_id": loan.customer_id, "new_status": new_status}
+    
+    # NOTE: In a real app, you'd pass the actual admin_id here.
+    create_audit_log(db, admin_id, action, details=details)
     try:
         db.commit()
         logger.info(message)

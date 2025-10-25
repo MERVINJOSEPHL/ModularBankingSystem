@@ -1,7 +1,7 @@
 # app/models/orm_models.py - CORRECTED
 
 import uuid
-from sqlalchemy import Column, String, Boolean, DateTime, CheckConstraint, ForeignKey, Text, BigInteger
+from sqlalchemy import Column, String, Boolean, DateTime, CheckConstraint, ForeignKey, Text, BigInteger,UniqueConstraint,Date
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import UUID, NUMERIC, JSONB
 from sqlalchemy.sql import func
@@ -166,3 +166,21 @@ class LoanRepayment(Base):
     # Relationships
     loan = relationship("Loan", back_populates="repayments")
     transaction = relationship("Transaction", back_populates="loan_repayment_record")
+
+
+class DailyLimitTracker(Base):
+    """
+    ORM Model to track the aggregate transaction amount for an account on a specific date.
+    Used for enforcing the fixed global daily transfer limit.
+    """
+    __tablename__ = "Daily_Limit_Tracker"
+
+    tracker_id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    account_id = Column(String(36), ForeignKey("Account.account_id", ondelete="CASCADE"), nullable=False)
+    transaction_date = Column(Date, nullable=False, server_default=func.current_date())
+    transacted_amount = Column(NUMERIC(15, 2), nullable=False, default=0.00) 
+    __table_args__ = (
+        UniqueConstraint('account_id', 'transaction_date', name='uq_account_date'),
+    )
+
+    account = relationship("Account")

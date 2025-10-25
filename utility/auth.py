@@ -1,16 +1,16 @@
-# smart-bank-modular/utility/auth.py
+# smart-bank-modular/utility/auth.py (COMPLETED)
 
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
-from typing import Optional
+from typing import Optional, Dict
 from datetime import datetime
 from sqlalchemy.orm import Session
 import uuid
 
 # Assuming these imports are available in your project structure
 from utility.database import get_db
-from models.orm_models import User # Need to import the User ORM model
+from models.orm_models import User # User ORM model
 from utility.logging import setup_logger
 
 logger = setup_logger(__name__)
@@ -81,7 +81,7 @@ def get_authenticated_user_and_role(
     return TokenData(user_id=user_id, role=role)
 
 
-# 2. Updated Dependency Function to use the new validation step
+# 3. Updated Dependency Function to use the new validation step
 def authorize_roles(allowed_roles: list[str]):
     """
     FastAPI dependency function to check if the current user has one of the allowed roles 
@@ -100,6 +100,8 @@ def authorize_roles(allowed_roles: list[str]):
 
     return role_checker
 
-# Pre-defined role dependencies remain the same, but now use the database-backed logic
+# Pre-defined role dependencies
 CUSTOMER_AUTH = authorize_roles(['customer'])
 ADMIN_AUTH = authorize_roles(['admin'])
+# NEW: Auditor role dependency
+AUDITOR_AUTH = authorize_roles(['auditor'])
