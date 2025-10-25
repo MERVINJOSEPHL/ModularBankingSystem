@@ -1,88 +1,82 @@
-# 🏦 Smart Bank Modular Banking System (5-Hour POC)
+# 🏦 Smart Bank Modular Banking System (Final PoC Scope)
 
-## 1. Project Goal and Scope
+## 1. Project Goal and Core Flow
 
-This project delivers a **Proof of Concept (PoC)** within a strict **5-hour limit**. The primary objective is to prove the technical viability of the system's core security and its most complex feature: integrating an **offline LLaMA model** for fraud analysis.
+This Proof of Concept (PoC) establishes a secure, modular banking system focused on the essential Customer and Admin workflows, driven by robust **JWT authentication** and cutting-edge **LLaMA-powered fraud detection**.
 
-### Focus: LLaMA Fraud Integration Structure
-
-The PoC demonstrates the essential pipeline: how structured transactional data is sent to a dedicated function (simulating the **LLaMA model**) for analysis, and how the resulting `FRAUD` flag is persisted in the PostgreSQL database.
+### Key System Flow
+1.  **Customer Onboarding:** Sign up $\rightarrow$ KYC Verification $\rightarrow$ Account Creation (Saving/Deposit Type).
+2.  **Customer Actions:** Login via JWT $\rightarrow$ Request Loan OR $\rightarrow$ Make Transaction.
+3.  **Real-time Security:** **LLaMA Fraud Detection** runs instantly during transactions.
+4.  **Admin Oversight:** Admin reviews all transactions and fraud flags.
 
 ---
 
-## 2. Achieved Architecture & Tech Stack
+## 2. Architecture & Tech Stack
 
-This PoC uses a focused technology stack to achieve a secure vertical slice.
-
-| Component | Technology | Role (5-Hour Scope) |
+| Component | Technology | Role & Security Focus |
 | :--- | :--- | :--- |
-| **Backend API** | **FastAPI** | High-performance API for handling authentication and the single transaction route. |
-| **Database** | **PostgreSQL** | Stores **`User`** records, **`Transaction`**, and **`Fraud_Flag`** records. |
-| **Data Validation**| **Pydantic** | Used to validate input for sign-up, login, and transaction data. |
-| **Frontend UI** | **Streamlit** | Provides a functional **Login Form** and a basic transaction input interface. |
-| **Authentication**| **JWT** & **Password Hashing** | Secure login and token-based access to the protected transaction route. |
-| **Fraud Model** | **LLaMA (Mocked Offline)** | A Python function that takes structured transaction data and returns a hardcoded **"FRAUD"** decision, simulating the LLaMA model's secure, local output. |
+| **Backend API** | **FastAPI** | High-speed API for data handling and logic. |
+| **Database** | **PostgreSQL** | Stores all financial data (Users, Accounts, Transactions). |
+| **Data Validation**| **Pydantic** | Enforces strict validation for KYC, Transactions, and Loan requests. |
+| **Frontend UI** | **Streamlit** | Provides simple, secure UI for Customer and Admin login/dashboards. |
+| **Authentication**| **JWT** & **Password Hashing** | Secures all API routes with token-based access and strong password encryption. |
+| **Fraud Model** | **LLaMA (Offline/Local)** | Securely processes transaction data at runtime to flag fraud, ensuring **data residency**. |
 
 ---
 
-## 3. Core Features Demonstrated
+## 3. Core Features & Role-Based Access
 
-The PoC demonstrates the end-to-end flow of a secured user submitting a transfer that gets immediately flagged for fraud.
+The system is defined by distinct roles and their authorization via JWT.
 
-### 3.1. Authentication Flow
-* **Customer Sign Up:** Register a user with **password hashing**.
-* **Customer Login:** Obtain and use a **JWT** for subsequent requests.
-* **Protected Access:** The JWT is required to access the transaction endpoint.
+### 3.1. 👨‍💻 Customer Flow (Authorized via JWT)
 
-### 3.2. Transaction & Fraud Flagging Pipeline
+| Feature | Description | Key Action |
+| :--- | :--- | :--- |
+| **Onboarding** | Sign-up, automatic **KYC verification** status, and designation of initial **Saving/Deposit** type. | Creation of `User` and `Account` records. |
+| **Transaction** | Initiate fund transfers or deposits. | Data is sent for immediate **LLaMA fraud check**. |
+| **Loan Request** | Submit a request for a loan. | Request is logged and sent to the Admin dashboard. |
 
-1.  **Submission:** Customer inputs a test transfer via the Streamlit UI.
-2.  **API Validation:** FastAPI validates the input using Pydantic.
-3.  **LLaMA Call:** The system calls the **mock LLaMA function** with the data.
-4.  **Flagging:** The function returns a pre-determined **"FRAUD"** decision.
-5.  **Persistence:** The system logs the transaction and creates a corresponding **`Fraud_Flag`** record in PostgreSQL.
+### 3.2. 💼 Bank Admin Flow (Authorized via JWT)
+
+| Feature | Description | Key Action |
+| :--- | :--- | :--- |
+| **Transaction Monitoring** | View all historical and real-time customer transactions. | Accesses the `Transaction` table. |
+| **Fraud Detection Review**| Review transactions that were flagged by the **LLaMA model at the time of the transaction**. | Reviews records in the `Fraud_Flag` table. |
+| **Loan Approval** | Manually approve or reject pending loan requests. | Updates the `Loan` record status. |
 
 ---
 
-## 4. Work Items Completed (The 5-Hour Deliverable)
+## 4. Key Security & Integrity Points
 
-| Work Item | Status |
-| :--- | :--- |
-| **Project & DB Setup** | FastAPI structure, Pydantic, and basic PostgreSQL connection configured. |
-| **Database Schema** | **`User`**, **`Transaction`**, and **`Fraud_Flag`** tables created in PostgreSQL. |
-| **Security Core** | Working **Login/Signup** endpoints with JWT generation and password hashing. |
-| **Frontend POC** | Streamlit UI with functional **Login Form** and JWT handling. |
-| **LLaMA Integration** | **`POST /api/transactions/transfer`** endpoint implemented, successfully calling the function that simulates the **LLaMA model's offline classification**. |
-| **Testing** | Basic **Pytest** for the primary login flow. |
+* **Offline LLaMA:** The LLM runs locally to ensure transaction data never leaves the controlled environment.
+* **Pydantic Validation:** Used on all inputs (KYC, Account creation, Transactions) to prevent data corruption.
+* **JWT Authorization:** Every request from both the Customer and Admin must carry a valid JWT token.
+* **Audit Logging:** Every critical action (login, transaction, approval) will be logged to satisfy the **Auditor** role requirement.
 
 ---
 
 ## 5. Installation and Setup
 
 ### Prerequisites
-
 * Python 3.10+
 * PostgreSQL running locally.
-* The actual LLaMA code/access is assumed to be available locally (or the mock function will be used).
+* Local LLaMA configuration (or a mock function to simulate its secure, offline output).
 
-### Instructions
+### Instructions (Simplified)
 
 1.  **Clone & Setup:**
     ```bash
     git clone [repository_url]
     cd smart-bank-modular
     pip install -r requirements.txt
-    # Configure DB details in a .env file
     ```
-2.  **Database Migration:** Run your migration script to create the necessary `User`, `Transaction`, and `Fraud_Flag` tables.
-3.  **Start the Backend (FastAPI):**
+2.  **Configure & Migrate:** Set up database connection details and run migration scripts to create all necessary tables.
+3.  **Start Services:**
     ```bash
+    # Backend
     uvicorn app.main:app --reload
-    ```
-4.  **Start the Frontend (Streamlit):**
-    In a separate terminal, start the UI:
-    ```bash
+
+    # Frontend
     streamlit run ui/app.py
     ```
-
-Navigate to the Streamlit app, sign up, log in, and perform a test transfer to demonstrate the LLaMA fraud pipeline working end-to-end.
